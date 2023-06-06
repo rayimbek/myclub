@@ -1,0 +1,230 @@
+
+<title>AituEvents</title>
+
+{% extends 'base.html'  %}
+{% load static %}
+	{% block content %}
+  <style>
+      /* Specific Styles */
+
+      body{
+        margin: 0;
+      }
+   
+      h1 {
+        font-size: 36px;
+        margin-top: 0;
+      }
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+     
+      img {
+        max-width: 100%;
+      }
+      .main{
+        margin-top: 2.3%;
+        margin-left: 12%;
+
+      }
+      #hero {
+        background-image: url("https://img.freepik.com/free-vector/ombre-blue-curve-light-blue-background_53876-113896.jpg");
+        background-size: cover;
+
+        background-position: center;
+        height: 300px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #hero h1 {
+        font-size: 72px;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      #about {
+        margin-left: 10%;
+        height: 80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;  
+        animation: 2s anim-lineUp ease-out;
+      }
+      #about h2{
+        
+        font-size: 30px;
+
+      }
+      #about p{
+        font-size: 20px;
+      
+      }
+     
+      
+      #mission {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        background-color: #f2f2f2;
+        padding: 30px;
+        padding-left: 6%;
+        padding-right: 7%;  
+      overflow: hidden;
+      border: 1px solid black;
+      margin-bottom: 16px;
+    }
+    #mission img {
+        width: 25%;
+        margin-right: 30px;
+      }
+      #mission h2 {
+        animation: color-animation 4s linear infinite;
+        --color-1: #DF8453;
+  --color-2: #3D8DAE;
+  --color-3: #E4A9A8;
+        margin-bottom: 10px;
+        font-size: 30px;
+
+      }
+      #mission p {
+  --color-3: #17494D;
+        margin-top: 5%;
+      }
+       @keyframes color-animation {
+  0%    {color: var(--color-1)}
+  32%   {color: var(--color-1)}
+  33%   {color: var(--color-2)}
+  65%   {color: var(--color-2)}
+  66%   {color: var(--color-3)}
+  99%   {color: var(--color-3)}
+  100%  {color: var(--color-1)}
+}
+         
+      @keyframes anim-lineUp {
+        0% {
+          opacity: 0;
+          transform: translateY(80%);
+        }
+        20% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+          transform: translateY(0%);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0%);
+        }
+      }
+      #members {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .member {
+        width: 33%;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      .member img {
+        border-radius: 50%;
+        height: 100px;
+        margin-bottom: 10px;
+      }
+      .member h3 {
+        margin-top: 0;
+      }
+      #events {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .event {
+        margin-left: 2%;
+        width: 30%;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      .event img {
+        height: 150px;
+        margin-bottom: 10px;
+      }
+      .event h3 {
+        margin-top: 0;
+      }
+      .event p {
+        font-size: 14px;
+      }
+      button{
+    display: block;
+    width: 50%;
+    margin-left: 25%;
+    padding: 10px;
+    border: none;;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 15px;
+    background-color: #05043A;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  button:hover {
+    background-color: #023e8a;
+  }
+</style>
+	<link rel="stylesheet" href="{% static 'deadline.css' %}">4
+  <section class = "main">
+
+<section id="hero">
+  <h1>Welcome to the {{ club.name}}</h1>
+</section>
+<section id="about">
+  <div>
+    <h2>About Us</h2>
+    <p>{{club.description}}
+    </p>
+    <button>Learn More</button>
+  </div>
+</section>
+<section id="mission">
+    {% if club.image2 %}
+  <img src="{{ club.image2.url}}" alt="club">
+    {% endif%}
+  <div>
+  <h2>Our Mission</h2>
+  <p> {{club.mission|safe}}</p>
+</div>
+</section>
+<section id="members">
+  {% for member in club.members.all %}
+  <div class="member">
+    <img src="https://source.unsplash.com/150x150/?person" alt="Member">
+    <h3>{{ member}}</h3>
+  </div>
+  {% endfor %}
+</section>
+<section id="events">
+  {% for member in club.members.all %}
+    <div class="event">
+    <img src="https://source.unsplash.com/400x250/?event" alt="Event">
+    <h3>Upcoming Event</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <button>Register</button>
+  </div>
+  {% endfor %}
+
+</section>
+
+  </section>
+
+	<script src="{% static 'script.js' %}"></script>
+    {% endblock %}

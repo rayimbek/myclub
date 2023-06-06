@@ -1,0 +1,96 @@
+
+<title>AituEvents</title>
+
+{% extends 'base.html'  %}
+{% load static %}
+{% load mathfilters %}
+	{% block content %}
+  <style>
+table {
+  margin-top: 2%;
+  margin-left: 12%;
+  position: absolute;
+  width: 70%;
+  border-collapse: collapse;
+
+}
+
+thead {
+ font-size: 25px;
+  font-family: Montserrat;
+  font-weight: 700;
+  background-color: #05043A;
+  color: white;
+}
+
+thead th:first-child {
+  border-top-left-radius: 5px;
+}
+
+thead th:last-child {
+  border-top-right-radius: 5px;
+}
+
+thead th {
+  padding: 11px;
+  border: 1px solid black;
+}
+
+tbody td {
+  text-align: center;
+  font-size: 25px;
+  font-family: Montserrat;
+  font-weight: 700;
+  padding: 10px;
+  border: 2px solid #969494;
+}
+tr td:nth-child(1),tr td:nth-child(2) {
+    color: #969494;
+}
+tr td:nth-child(3){
+    color: #FE3434;
+}
+</style>
+	<link rel="stylesheet" href="{% static 'deadline.css' %}">
+<section class = "base">
+	<h1>Deadline For This Weekend	</h1>
+		  
+  <table class="table">
+  <thead >
+    <tr>
+      <th>№</th>  
+      <th>Subject Name</th>
+      <th>Time Remaining</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% if subjects %}
+    {% for subject in subjects %}
+    {%  with due=now.day %}
+
+    {%  with hours=now.hour%}
+    
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{subject.SubjectName}}</td>
+      <td>{{subject.TimeRemaining.day }} {{subject.Name}} {{subject.TimeRemaining.time}}|{{ subject.days_still }} {{ hours|sub:subject.TimeRemaining.hour|sub:6 }} hours left</td>
+
+    </tr>
+    <tr>
+
+      {% endwith %}
+      {% endwith %}
+      {% endfor %}
+  {% endif %}
+  </tbody>
+</table>
+
+
+
+
+
+ </section>
+
+
+	<script src="{% static 'script.js' %}"></script>
+    {% endblock %}

@@ -1,0 +1,194 @@
+<title>AituEvents</title>
+<style>
+    table {
+      border-collapse: collapse;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      margin-top: 1%;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+
+        text-align: center;
+    }
+
+    th {
+      background-color: darkblue;
+      color: white;
+    }
+
+    .tables {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 2%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .tables div {
+      flex: 1;
+      margin-right: 2%;
+    }
+
+
+    .tab {
+      margin-left: auto;
+      margin-right: auto;
+      padding: 1%;
+      width: 80%;
+      background-color: #f7f7f7;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    table a {
+      text-decoration: none;
+      color: blue;
+    }
+
+    table a:hover {
+      color: black;
+    }
+
+    .create {
+      width: 95%;
+      padding: 10px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 10px;
+      display: block;
+      border: none;
+      border-radius: 5px;
+      background-color: darkblue;
+      color: white;
+      text-decoration: none;
+      font-size: 17px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .create:hover {
+      background-color: #05043A;
+    }
+      .update-button {
+        padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+    }
+
+    .delete-button {
+      padding: 5px 10px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+    }
+    body {
+      margin-left: 10%;
+      background-color: lightgrey;
+    }
+</style>
+
+{% extends 'base.html' %}
+{% load static %}
+  {% block content %}
+
+  <link rel="stylesheet" href="{% static 'events.css' %}">
+  <section class="base">
+
+    <div class="tab" >
+      <h2>COURSES</h2>
+      <hr>
+      <a class ="create" href = "{% url 'createcourse' %}">Create Course</a>
+      <table>
+        <tr>
+          <th>Course Name</th>
+          <th>Data Created</th>
+          <th>Update</th>
+          <th>Remove</th>
+        </tr>
+        {% for course in course_list %}
+
+        <tr>
+          <td>{{course.name}}</td>
+          <td>{{course.data_created}}</td>
+          <td>
+            <a class = "update-button" href="{% url 'updatecourse' course.id %}">Update</a>
+          </td>
+          <td>
+            <a  class = "delete-button" href="{% url 'deletecourse' course.id %}">Delete</a>
+          </td>
+        </tr>
+
+        {% endfor %}
+      </table>
+    </div>
+    <br>
+    <hr>
+    <div class="tables">
+
+      <div class="tab">
+         <h2>VIDEO RESOURCES</h2>
+         <hr>
+        <a class ="create" href = "{% url 'createvideoresource' %}">Create Video Resource</a>
+        <table>
+          <tr>
+            <th>Resource Name</th>
+            <th>Status</th>
+            <th>Update</th>
+            <th>Remove</th>
+          </tr>
+          {% for i in videoresource_list %}
+
+          <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.status}}</td>
+            <td>
+              <a class = "update-button" href="{% url 'updatevideoresource' i.id %}">Update</a>
+            </td>
+            <td>
+              <a class = "delete-button" href="{% url 'deletevideoresource' i.id %}">Delete</a>
+            </td>
+          </tr>
+
+          {% endfor %}
+        </table>
+      </div>
+      <div class="tab">
+
+         <h2>RESOURCES</h2>
+         <hr>
+        <a class ="create" href = "{% url 'createresource' %}">Create Resource</a>
+        <table>
+          <tr>
+            <th>Resource Name</th>
+            <th>Status</th>
+            <th>Update</th>
+            <th>Remove</th>
+          </tr>
+          {% for i in resource_list %}
+
+          <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.status}}</td>
+            <td>
+              <a class = "update-button" href="{% url 'updateresource' i.id %}">Update</a>
+            </td>
+            <td>
+              <a class = "delete-button" href="{% url 'deleteresource' i.id %}">Delete</a>
+            </td>
+          </tr>
+
+          {% endfor %}
+        </table>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <script src="{% static 'script.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,98 @@
+
+<title>AituEvents</title>
+
+{% extends 'base.html'  %}
+{% load static %}
+	{% block content %}
+
+	<link rel="stylesheet" href="{% static 'prepare.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+<style>
+    .button-container a{
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .button-container a:hover {
+    background-color: #023e8a;
+  }
+  .card{
+    border-radius: 5px;
+  }
+  .card h2{
+    position: absolute;
+    margin-top: 40%;
+    margin-left: 10%;
+    padding: 1%;
+    color: white;
+    font-size: 25px;
+    font-family: 'Roboto', sans-serif;
+  }
+  </style>
+<section class = "base">
+
+
+<h1>Let's prepare together  </h1>
+  <div class="button-container">
+  <label class="course-select">Select your course:</label>
+  <a class="button" href="{% url 'prepare'%}">1st</a>
+  <a class="button" href="{% url '2course'%}">2nd</a>
+  <a class="button" href="{% url '3course'%}">3rd</a>
+</div>
+    
+  <div class="card-container">
+    <div class="card first">
+
+      <h2 href="">Software Design Patterns</h2>
+    <img src="{% static 'software.png' %}" alt="Image 1">
+    <div class="card-overlay">
+      <a class="btn" href="{% url 'firstsubject' %}">More</a>
+    </div>
+  </div>
+  <div class="card">
+    <img src="{% static 'dbms.png' %}" alt="Image 2">
+    <div class="card-overlay">
+      <button class="btn">More</button>
+    </div>
+  </div>
+  <div class="card">
+    <img src="{% static 'coa.png' %}" alt="Image 3">
+    <div class="card-overlay">
+      <button class="btn">More</button>
+    </div>
+  </div>
+  <div class="card">
+      <h2 href="">Mobile Development 1</h2>
+    
+    <img src="{% static 'mobile1.jpeg' %}" alt="Image 4">
+    <div class="card-overlay">
+      <button class="btn">More</button>
+    </div>
+  </div>
+  <div class="card">
+    <img src="{% static 'operating.jpg' %}" alt="Image 5">
+    <div class="card-overlay">
+      <button class="btn">More</button>
+    </div>
+  </div>
+  <div class="card">
+    
+      <h2 href="">Advanced Programming </h2>
+    <img src="{% static 'advanced.jpg' %}">
+    <div class="card-overlay">
+      <button class="btn">More</button>
+    </div>
+  </div>
+</div>
+  
+</section>
+
+
+ </section>
+
+
+	<script src="{% static 'script.js' %}"></script>
+    {% endblock %}

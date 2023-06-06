@@ -1,0 +1,52 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login - University Platform</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'log.css' %}">
+    
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&amp;display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <!-- Navigation Bar Code -->
+    </header>
+    <main class="main-content">
+      <nav class = "left-nav">
+    <div class="logo-container">
+       <img src="{% static 'unilogo.png' %}" alt="University Logo">
+    </div>
+ 
+  </nav>
+      <div class="form-wrapper">
+
+        <h2>Welcome AITUdent</h2>
+        <div class="bar error">
+            {{ form.errors}}            
+        </div>
+        <form action = "" method = POST>
+            {% csrf_token %}      
+
+          <div class="form-control">
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="" required>
+          </div>
+          <div class="form-control">
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="" required>
+          </div>
+           <div class="forgot-password">
+            <a href="#">Forgot Password?</a>
+          </div>
+          <button type="submit" class="btn" onclick="butt()">LOG IN</button>
+        </form>
+      </div>
+    </main>
+    <script type="text/javascript" src="{% static 'signup.js' %}"></script>
+    <footer>
+      <!-- Footer Code -->
+    </footer>
+  </body>
+</html>

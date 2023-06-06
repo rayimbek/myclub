@@ -1,0 +1,41 @@
+
+{% extends 'base.html'  %}
+
+{% load static %}
+	{% block content %}
+
+	<link rel="stylesheet" href="{% static 'body.css' %}">
+	<section class="intro-section">
+      <h2>WELCOME DEAR <span style="color: white">AITU</span>DENT</h2>
+      <h3>
+        This is the online guidebook service 
+      </h3>
+    </section>
+    <section class="features-section">
+      <h2>"Online GuideBook" will provide</h2>
+     <div class = "row">
+		      <div class = "column">
+		      	<img src="{% static 'image1.png' %}">
+		      	<p>You can prepare for your incoming 
+		exam by useful tips and links</p>
+		      </div>
+		      <div class = "column">
+		      	<img src="{% static 'image4.png' %}">
+		      	<p>You will be informed about upcoming events and existing social clubs </p>
+		      </div>
+	</div>
+	<div class = "row">
+		      <div class = "column">
+		      	<img src="{% static 'image2.png' %}">
+		      	<p>You can calculate and trace grades by 
+GPA system</p>
+		      </div>
+		      <div class = "column">
+		      	<img src="{% static 'image3.png' %}">
+		      	<p>For time management, you will be able
+to manage your course deadlines</p>
+		      </div>
+  </div>
+    </section>
+
+    {% endblock %}

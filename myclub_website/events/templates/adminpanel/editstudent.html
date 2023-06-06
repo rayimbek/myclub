@@ -1,0 +1,166 @@
+<title>AituEvents</title>
+<style>
+    table {
+      border-collapse: collapse;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      margin-top: 1%;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+
+        text-align: center;
+    }
+
+    th {
+      background-color: darkblue;
+      color: white;
+    }
+
+    .tables {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 2%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .tables div {
+      flex: 1;
+      margin-right: 2%;
+    }
+
+
+    .tab {
+      margin-left: auto;
+      margin-right: auto;
+      padding: 1%;
+      width: 80%;
+      background-color: #f7f7f7;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    table a {
+      text-decoration: none;
+      color: blue;
+    }
+
+    table a:hover {
+      color: black;
+    }
+
+    .create {
+      width: 100%;
+      padding: 10px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 10px;
+      display: block;
+      border: none;
+      text-decoration: none;
+      border-radius: 5px;
+      background-color: darkblue;
+      color: white;
+      font-size: 17px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .create:hover {
+      background-color: #05043A;
+    }
+      .update-button {
+        padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+    }
+
+    .delete-button {
+      padding: 5px 10px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+    }
+    body {
+      margin-left: 10%;
+      background-color: lightgrey;
+    }
+</style>
+
+{% extends 'base.html' %}
+{% load static %}
+  {% block content %}
+
+  <link rel="stylesheet" href="{% static 'events.css' %}">
+  <section class="base">
+
+    <div class="tab" >
+      <h2>STUDENTS</h2>
+      <hr>
+      <a class ="create" href = "{% url 'createstudent' %}">Add Student</a>
+      <table>
+        <tr>
+          <th>Student Name</th>
+          <th>Student Barcode</th>
+          <th>Update</th>
+          <th>Remove</th>
+        </tr>
+        {% for student in students %}
+
+        <tr>
+          <td>{{student.name}}</td>
+          <td>{{student.user}}</td>
+          <td>
+            <a class = "update-button" href="{% url 'updatestudent' student.id %}">Update</a>
+          </td>
+          <td>
+            <a  class = "delete-button" href="{% url 'deletestudent' student.id %}">Delete</a>
+          </td>
+        </tr>
+
+        {% endfor %}
+      </table>
+    </div>
+    <br>
+    <hr>
+    <div class="tables">
+
+      <div class="tab">
+         <h2>SUBJECTS</h2>
+         <hr>
+        <a class ="create" href = "{% url 'createsubject' %}">Create subject</a>
+        <table>
+          <tr>
+            <th>Resource Name</th>
+            <th>Data Created</th>
+            <th>Update</th>
+            <th>Remove</th>
+          </tr>
+          {% for i in subjects %}
+
+          <tr>
+            <td>{{i.SubjectName}}</td>
+            <td>{{i.data_created}}</td>
+            <td>
+              <a class = "update-button" href="{% url 'updatesubject' i.id %}">Update</a>
+            </td>
+            <td>
+              <a class = "delete-button" href="{% url 'deletesubject' i.id %}">Delete</a>
+            </td>
+          </tr>
+
+          {% endfor %}
+        </table>
+      </div>
+      
+    </div>
+
+  </section>
+
+
+  <script src="{% static 'script.js' %}"></script>
+{% endblock %}

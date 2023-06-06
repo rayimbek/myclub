@@ -1,0 +1,110 @@
+
+<title>AituEvents</title>
+<style>
+    table {
+      border-collapse: collapse;
+      margin-left: 15%;
+      width: 75%;
+      margin-top: 1%;
+    }
+
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+
+        text-align: center;
+    }
+
+    th {
+      background-color: darkblue;
+      color: white;
+    }
+
+    h2{
+        font-size: 30px;
+    }
+    table a{
+        text-decoration: none;
+        color: blue
+    }
+    table a:hover{
+        color:black;
+    }
+    .create{
+      width: 74%;
+    padding: 10px;
+    margin-left: 15%;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    display: block;
+    background-color: darkblue;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+    }
+    .create:hover {
+    background-color: #05043A;
+  }
+    .update-button {
+        padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+    }
+
+    .delete-button {
+      padding: 5px 10px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+    }
+
+    
+  </style>
+{% extends 'base.html'  %}
+{% load static %}
+	{% block content %}
+
+	<link rel="stylesheet" href="{% static 'events.css' %}">
+	<section class = "base">
+        <h2>CLUBS</h2>
+        <hr>
+        <br>
+    <a class="create" href = "{% url 'createclub' %}">Create Club</a>
+    <table>
+    <tr>
+      <th>Club Name</th>
+      <th>Data Created</th>
+      <th>Update</th>
+      <th>Remove</th>
+    </tr>
+     {% for club in club_list %}
+    
+    <tr>
+      <td>{{club.name}}</td>
+      <td>{{club.data_created}}</td>
+      <td>
+        <a class = "update-button" href="{%  url 'updateclub' club.id %}">Update</a>
+      </td>
+      <td>
+        <a class = "delete-button" href="{%  url 'deleteclub' club.id %}">Delete</a>
+      </td>
+    </tr>
+
+  {% endfor %}
+    <!-- Add more rows as needed -->
+  </table>
+    	
+       
+  
+	
+</section>
+
+
+	<script src="{% static 'script.js' %}"></script>
+    {% endblock %}

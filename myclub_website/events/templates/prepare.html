@@ -1,0 +1,53 @@
+
+<title>AituEvents</title>
+
+{% extends 'base.html'  %}
+{% load static %}
+	{% block content %}
+  <style>
+    .button-container a{
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 600;
+    }
+    .button-container a:hover {
+    background-color: #023e8a;
+  }
+  </style>
+
+	<link rel="stylesheet" href="{% static 'prepare.css' %}">
+
+<section class = "base">
+
+
+<h1>Let's prepare together  </h1>
+  <div class="button-container">
+  <label class="course-select">Select your course:</label>
+  <a class="button" href="{% url 'prepare'%}">1st</a>
+  <a class="button" href="{% url '2course'%}">2nd</a>
+  <a class="button" href="{% url '3course'%}">3rd</a>
+</div>
+    
+  <div class="card-container">
+    {% for course in course_list %}
+      <div class="card">
+        {%  if course.course_image %}
+    <img src="{{ course.course_image.url}}" alt="Image 1">
+        {% endif %}
+    <div class="card-overlay">
+      <a class="btn" href="{% url 'show-subject' course.id%}">More</a>
+    </div>
+  </div>
+    {% endfor %}
+  
+
+</div>
+  
+</section>
+
+
+ </section>
+
+
+	<script src="{% static 'script.js' %}"></script>
+    {% endblock %}

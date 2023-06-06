@@ -1,0 +1,77 @@
+
+<title>AituEvents</title>
+
+{% extends 'base.html'  %}
+{% load static %}
+	{% block content %}
+<style>
+    .button-container a{
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 600;
+    }
+    
+    .button-container a:hover {
+    background-color: #023e8a;
+  }
+  </style>
+	<link rel="stylesheet" href="{% static 'prepare.css' %}">
+
+<section class = "base">
+
+
+<h1>Let's prepare together  </h1>
+  <div class="button-container">
+  <label class="course-select">Select your course:</label>
+  <a class="button" href="{% url 'prepare'%}">1st</a>
+  <a class="button" href="{% url '2course'%}">2nd</a>
+  <a class="button" href="{% url '3course'%}">3rd</a>
+</div>
+    
+  <div class="card-container">
+  <div class="card first">
+    <img src="{% static 'image13.png' %}" alt="Image 1">
+    <div class="card-overlay">
+      <a class="btn" href="{% url 'firstsubject' %}">More</a>
+    </div>
+  </div>
+  <div class="card">
+    <img src="{% static 'image14.png' %}" alt="Image 2">
+    <div class="card-overlay">
+      <button class="btn">More</button>
+    </div>
+  </div>
+  <div class="card">
+    <img src="{% static 'image15.png' %}" alt="Image 3">
+    <div class="card-overlay">
+      <button class="btn">More</button>
+    </div>
+  </div>
+  <div class="card">
+    <img src="{% static 'image16.png' %}" alt="Image 4">
+    <div class="card-overlay">
+      <button class="btn">More</button>
+    </div>
+  </div>
+  <div class="card">
+    <img src="{% static 'image17.png' %}" alt="Image 5">
+    <div class="card-overlay">
+      <button class="btn">More</button>
+    </div>
+  </div>
+  <div class="card">
+    <img src="{% static 'image18.png' %}" alt="Image 6">
+    <div class="card-overlay">
+      <button class="btn">More</button>
+    </div>
+  </div>
+</div>
+  
+</section>
+
+
+ </section>
+
+
+	<script src="{% static 'script.js' %}"></script>
+    {% endblock %}

@@ -1,0 +1,51 @@
+
+<title>AituEvents</title>
+{% extends 'base.html'  %}
+{% load static %}
+	{% block content %}
+
+	<link rel="stylesheet" href="{% static 'events.css' %}">
+	<section class = "base">
+	<h1>AITU Clubs	</h1>
+	<div class="card-container">
+    {% for club in club_list %}
+    
+        {% if forloop.counter == 1 %}
+              <div class="card first">
+                       {%  if club.club_image %}
+                <img src="{{ club.club_image.url}}" alt="Image 1">
+                       {% endif %}
+                <div class="card-overlay">
+
+                  <a class="btn" href = "{% url 'show-club' club.id%}">More</a>
+                  
+                </div>
+              </div>
+       {% else %}
+          {% if forloop.counter == 4 %}
+          <div class = "list">
+            <ul>
+              <li><a href="#">* AITU Clubs</a></li>
+              <li><a href="#">* AITU Hackathon</a></li>
+              <li><a href="#">* AITU StartUP</a></li>
+            </ul>
+          </div>
+         {% endif %}
+
+                <div class="card">
+                    {%  if club.club_image %}
+                <img src="{{ club.club_image.url}}" alt="Image 1">
+                    {% endif %}
+                <div class="card-overlay">
+                  <a class="btn" href = "{% url 'show-club' club.id%}">More</a>
+                </div>
+              </div>
+     {% endif %}
+  {% endfor %}
+  
+	
+</section>
+
+
+	<script src="{% static 'script.js' %}"></script>
+    {% endblock %}

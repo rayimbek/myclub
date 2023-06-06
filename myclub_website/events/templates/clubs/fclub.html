@@ -1,0 +1,204 @@
+
+<title>AituEvents</title>
+
+{% extends 'base.html'  %}
+{% load static %}
+	{% block content %}
+  <style>
+      /* Specific Styles */
+
+      body{
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+   
+      h1 {
+        font-size: 36px;
+        margin-top: 0;
+      }
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        margin-bottom: 10px;
+      }
+      img {
+        max-width: 100%;
+      }
+      .main{
+        margin-top: 2.3%;
+        margin-left: 12%;
+
+      }
+      #hero {
+        background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20201223/pngtree-blue-retro-basketball-background-image_513517.jpg");
+        
+        background-size:contain;
+        background-size: cover;
+        background-position: center;
+        height: 300px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #hero h1 {
+        font-size: 72px;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      #about {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #about img {
+        width: 50%;
+        margin-right: 20px;
+      }
+      #mission {
+        
+        justify-content: center;
+        text-align: center;
+        background-color: #f2f2f2;
+        padding: 45px;
+        padding-left: 10%;
+        padding-right: 10%;
+      }
+      #mission h2 {
+        margin-bottom: 10px;
+      }
+      #mission p {
+        margin-bottom: 5%;
+        
+      }
+      #members {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .member {
+        width: 33%;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      .member img {
+        border-radius: 50%;
+        height: 100px;
+        margin-bottom: 10px;
+      }
+      .member h3 {
+        margin-top: 0;
+      }
+      #events {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .event {
+        width: 30%;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      .event img {
+        height: 150px;
+        margin-bottom: 10px;
+      }
+      .event h3 {
+        margin-top: 0;
+      }
+      .event p {
+        font-size: 14px;
+      }
+      button{
+    display: block;
+    width: 50%;
+    margin-left: 25%;
+    padding: 10px;
+    border: none;;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 15px;
+    background-color: #05043A;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  button:hover {
+    background-color: #023e8a;
+  }
+</style>
+	<link rel="stylesheet" href="{% static 'deadline.css' %}">4
+  <section class = "main">
+<section id="hero">
+  <h1>Welcome to the Basketball Club</h1>
+</section>
+<section id="about">
+  <img src="https://img.freepik.com/premium-photo/white-basketball-hoop-blue-background_443598-3199.jpg" alt="University">
+  <div>
+    <h2>About Us</h2>
+    <p>Welcome to our basketball club, where the love for the game meets the spirit of camaraderie! We are a passionate group of athletes, coaches, and basketball enthusiasts dedicated to promoting the sport and fostering a strong community of players. With a rich history and a commitment to excellence, our club has become a hub for basketball lovers of all ages and skill levels.
+    </p>
+    <button>Learn More</button>
+  </div>
+</section>
+<section id="mission">
+  <h2>Our Mission</h2>
+  <p>At our basketball club, our mission is to inspire, empower, and transform individuals through the game of basketball. We believe in the power of sports to instill valuable life lessons and character traits that extend beyond the court. Our dedicated coaching staff is committed to nurturing talent, fostering a strong work ethic, and teaching essential skills that transcend basketball.</p>
+  <hr>
+  <p>
+    We aim to provide a comprehensive training program that caters to players of all ages and skill levels. Whether you are a beginner looking to learn the fundamentals or an experienced athlete striving to take your game to the next level, our club offers a structured curriculum and personalized coaching to help you reach your full potential. We emphasize the importance of discipline, perseverance, and sportsmanship, promoting a growth mindset that extends beyond the sport itself.
+  </p>
+  <hr>
+  <p>
+    Community is at the heart of our club. We organize various events, leagues, and tournaments that bring together players, families, and basketball enthusiasts from diverse backgrounds. By fostering a sense of belonging and teamwork, we aim to create a supportive network where individuals can grow both athletically and personally.
+  </p>
+</section>
+<section id="members">
+  <div class="member">
+    <img src="https://source.unsplash.com/150x150/?person" alt="Member">
+    <h3>John Doe</h3>
+    <p>President</p>
+  </div>
+  <div class="member">
+    <img src="https://source.unsplash.com/150x150/?person" alt="Member">
+    <h3>Jane Smith</h3>
+    <p>Vice President</p>
+  </div>
+  <div class="member">
+    <img src="https://source.unsplash.com/150x150/?person" alt="Member">
+    <h3>Bob Johnson</h3>
+    <p>Treasurer</p>
+  </div>
+</section>
+<section id="events">
+  <div class="event">
+    <img src="https://source.unsplash.com/400x250/?event" alt="Event">
+    <h3>Upcoming Event</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <button>Register</button>
+  </div>
+  <div class="event">
+    <img src="https://source.unsplash.com/400x250/?event" alt="Event">
+    <h3>Another Event</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <button>Register</button>
+  </div>
+  <div class="event">
+    <img src="https://source.unsplash.com/400x250/?event" alt="Event">
+    <h3>Third Event</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <button>Register</button>
+  </div>
+</section>
+
+  </section>
+
+	<script src="{% static 'script.js' %}"></script>
+    {% endblock %}

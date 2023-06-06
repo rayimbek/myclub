@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+  {% block content %}
+  <style>
+    body {
+      background-color: #f5f5f5;
+    }
+    
+    .profile-container {
+      max-width: 400px;
+      margin: 0 auto;
+      margin-top: 7%;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .profile-container h2 {
+      margin-top: 0;
+      text-align: center;
+    }
+   
+    
+    
+    
+.error {
+  color: #ba3939;
+}
+
+  .form-wrapper {
+    margin-left: 15%;
+    margin-top: 10%;
+    height: 60%;
+    width: 50%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+  }
+
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-control {
+    margin: 20px;
+  }
+
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  select,input{
+   
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background: #EEEEEE;
+    box-sizing: border-box;
+  }
+
+  button{
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #337ab7;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+  }
+
+  button:hover {
+      background-color: #23527c;
+  }
+  </style>
+  <section class="base">
+  <div class="profile-container">
+    <h2>Profile Editing</h2>
+    
+        <div class="bar error">
+            {{ form.errors}}            
+        </div>
+        <form action = "" method = POST enctype="multipart/form-data">
+            {% csrf_token %}      
+            {{form}}
+
+          <button type="submit" >Edit</button>
+        </form>
+    
+  </div>
+</section>
+
+
+
+
+
+  {% endblock %}
+
+

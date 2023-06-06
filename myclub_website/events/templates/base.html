@@ -1,0 +1,62 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		body{
+			font-family: Montserrat;
+		}
+	</style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>University</title>
+	
+	<link rel="stylesheet" href="{% static 'main.css' %}">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&amp;display=swap" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+</head>
+<body >
+	
+	<main >
+	<header>
+		<nav class="top-nav">
+		    <ul class = "profile">
+		    <li class = "lii"><div class="liss"><img class= "listIMG" src="{% static 'account.png' %}" alt="University Logo"><a>{{ request.session.person.barcode}} <span class="arrow">&#9662;</span></a></div>
+		    	<ul>
+              {% if user.is_authenticated %}
+              	  <li><a href="{% url 'profile' %}">Profile</a></li>
+              	  <li><a href="{% url 'logout' %}">Logout</a></li>
+              {% else %}
+              <li><a href="{% url 'login' %}">Login</a></li>
+     				       	
+              {% endif %}
+            	</ul>
+            </li>
+			</ul>
+		</nav>
+	</header>
+		
+    <nav class = "left-nav">
+		<div class="logo-container">
+	 	   <img src="{% static 'unilogo.png' %}" alt="University Logo">
+	  </div>
+	<ul>
+	    <a href="{% url 'home' %}"><li><img class= "listIMG" src="{% static 'home.png' %}" alt="University Logo"><label>Dashboard</label></li> </a>
+	    <a href="{% url 'flash' %}"><li><img class= "listIMG" src="{% static 'flashcards.png' %}" alt="University Logo"><label>Flash Cards</label></li></a>
+	    <a href="{% url 'aituevents' %}"><li><img class= "listIMG" src="{% static 'events.png' %}" alt="University Logo"><label>AITU Events</label></li></a>
+	    <a href="{% url 'prepare' %}"><li><img class= "listIMG" src="{% static 'a+.png' %}" alt="University Logo"><label>Exam Prep</label></li></a>
+	    <a href="{% url 'deadline' %}"><li><img class= "listIMG" src="{% static 'deadline.png' %}" alt="University Logo"><label>Deadline</label></li></a>
+	    <a href="{% url 'calculator' %}"><li><img class= "listIMG" src="{% static 'calculator.png' %}" alt="University Logo"><label>GPA Calculator</label></li></a>
+	   <a href="{% url 'faq' %}"> <li><img class= "listIMG" src="{% static 'faq.png' %}" alt="University Logo"><label>FAQs</label></li></a>
+	    
+	  </ul>
+	</nav>
+    {% block content %}
+
+
+    {% endblock %}
+  </main>
+</body>
+</html>

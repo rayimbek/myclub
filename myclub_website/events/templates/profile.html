@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+  {% block content %}
+  <style>
+    body {
+      background-color: #f5f5f5;
+    }
+    
+    .profile-container {
+      max-width: 400px;
+      margin: 0 auto;
+      margin-top: 8%;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .profile-container h2 {
+      margin-top: 0;
+      text-align: center;
+    }
+    
+    .profile-info {
+      margin-bottom: 20px;
+    }
+    
+    .profile-info label {
+      display: inline-block;
+      width: 100px;
+      font-weight: bold;
+    }
+    
+    .profile-info p {
+      margin: 5px 0;
+    }
+    
+    .barcode {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .barcode img {
+      width: 200px;
+      height: auto;
+      border: 1px solid #ccc;
+    }
+    
+    .address {
+      margin-bottom: 20px;
+    }
+    
+    .address label {
+      font-weight: bold;
+    }
+    
+    .address p {
+      margin: 5px 0;
+    }
+    
+    .profile-actions {
+      text-align: center;
+    }
+    
+    .profile-actions a {
+      text-decoration: none;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #337ab7;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+    
+    .profile-actions a:hover {
+      background-color: #23527c;
+    }
+  </style>
+  <section class="base">
+  <div class="profile-container">
+    <h2>Profile</h2>
+    
+    <div class="barcode">
+        
+      {%  if student.profile_pic %}
+      <img src="{{ student.profile_pic.url}}">
+      {% endif %}
+    </div>
+    <div class="profile-info">
+      <label>Name:</label>
+      <p>{{student.name}} {{student.surname}}</p>
+      <label>Email:</label>
+      <p>{{student.user}}@astanait.edu.kz</p>
+    </div>
+    <div class="address">
+      <label>Country:</label>
+      <p>{{student.country}}</p>
+      <label>City:</label>
+      <p>{{student.city}}</p>
+    </div>
+    <div class="profile-actions">
+      <a href="{% url 'accsettings' %}">Edit Profile</a>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+  {% endblock %}
+
+
