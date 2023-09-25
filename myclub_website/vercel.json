@@ -13,7 +13,8 @@
       "config": {
         "distDir": "staticfiles_build"
       }
-    }
+    },
+    { "rewrites": [{ "source": "/(.*)", "destination": "/" }] }
   ],
   "routes": [
     {
