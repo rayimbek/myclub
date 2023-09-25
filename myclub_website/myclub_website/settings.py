@@ -77,7 +77,7 @@ DATABASES = {
         'NAME': 'demo_1',
         'USER': 'rayimbek',
         'PASSWORD':'Raiko7508', 
-        'HOST' : 'database-1.cm924kdd9veu.eu-north-1.rds.amazonaws.com',
+        'HOST' : 'database-1.czyzohkzcm3l.eu-central-1.rds.amazonaws.com',
         'PORT' : '5432'
     }   
 }   
