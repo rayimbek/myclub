@@ -3,7 +3,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "myclub/wsgi.py",
+      "src": "myclub_website/wsgi.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     },
@@ -24,7 +24,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "myclub/wsgi.py"
+      "dest": "myclub_website/wsgi.py"
     }
   ]
 }
