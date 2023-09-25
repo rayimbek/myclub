@@ -1,6 +1,7 @@
 from django import forms
 from django.forms import ModelForm, DateTimeInput
 
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordChangeForm
 from .models import * 
@@ -43,8 +44,12 @@ class ResourceForm(ModelForm):
 class StudentForm(ModelForm):
 	class Meta:
 		model = Student
-		fields = '__all__'	
-		exclude = ['user']
+		fields = '__all__'
+
+class CreateUserForm(UserCreationForm):
+	class Meta:
+		model = User
+		fields = ['username', 'email', 'password1','password2'] 
 
 
 class SubjectForm(ModelForm):

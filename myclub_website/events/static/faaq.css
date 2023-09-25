@@ -8,11 +8,14 @@
 
 .faq-question {
   cursor: pointer;
-  display: flex;  
-  align-items: center;
+  display: flex;
   background-color: #f2f2f2;
   padding: 20px;
   border-radius: 5px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #05043A;
+
 }
 
 .faq-question:hover {
@@ -24,6 +27,8 @@
 }
 
 .faq-answer {
+  padding: 2%;
+
   display: none;
 }
 
@@ -39,8 +44,6 @@
 }
 .faq-item{
   margin: 1%;
-  position: relative;
-   flex-basis:45%;
-  width: 350px;
+   flex-basis:70%;
   overflow: hidden;
 }

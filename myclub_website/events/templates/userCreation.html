@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+  {% block content %}
+  <style>
+
+.error {
+  color: #ba3939;
+}
+
+  .form-wrapper {
+    margin-left: 15%;
+    margin-top: 6%;
+    height: 60%;
+    width: 50%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+  }
+  .form-wrapper a{
+    text-decoration: none;
+      padding: 10px 20px;
+      margin-bottom: 2%;
+      border: none;
+      border-radius: 5px;
+      background-color: #337ab7;
+      width: 5%;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+  }
+  .form-wrapper a:hover{
+    ackground-color: #23527c;
+  }
+  h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-control {
+    margin: 20px;
+  }
+
+  label {
+
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  select,input{
+    margin-bottom: 2%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background: #EEEEEE;
+    box-sizing: border-box;
+  }
+
+  button[type="submit"] {
+    width: 70%;
+    margin-left: 15%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    margin-top: 20px;
+    background-color: #05043A;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #023e8a;
+  }
+  .base{
+    display: flex;
+    justify-content: center;
+  }
+  
+  </style>
+  <section class="base">
+
+     <div class="form-wrapper">
+
+        <h2>Creating User</h2>
+        <div class="bar error">
+            {{ form.errors}}            
+        </div>
+        <form action = "" method = POST enctype="multipart/form-data">
+            {% csrf_token %}    
+            {{form.username.label}}
+            {{form.username}}
+
+            {{form.email.label}}
+            {{form.email}}
+
+            {{form.password1.label}}
+            {{form.password1}}
+
+            {{form.password2.label}}
+            {{form.password2}}
+          <a class = "user" href="{% url 'createstudent' %}"> Back</a>    
+          <button type="submit" class="btn" >Create</button>
+        </form>
+      </div>
+</section>
+
+
+
+
+
+  {% endblock %}
+
+

@@ -45,6 +45,7 @@ urlpatterns = [
     path('delete_subject/<str:pk>',views.deleteSubject, name = "deletesubject"),
 
     path('profile/',views.profile, name = "profile"),
+    path('UserCreation/',views.userCreation, name = "usercreation"),
     path('accsettings/',views.accSettings, name = "accsettings"),
     path('editstudent/',views.editstudent, name = "editstudent"),
     path('show_club/<club_id>',views.show_club, name = "show-club"),
@@ -53,6 +54,10 @@ urlpatterns = [
     path('firstsubject',views.firstsubject, name = "firstsubject"),
     path('deadline/',views.deadline, name = "deadline"),
     path('GPAcalculator/',views.calculator, name = "calculator"), 
+
+    path('Finalcalculator/',views.finalCalculator, name = "finalcalculator"), 
+    path('scaleTable/',views.scaleTable, name = "scaleTable"), 
+
     path('1club/',views.firstclub, name = "fclub"),
     path('debate/',views.debate, name = "debate"),
     path('2course/',views.secondcourse, name = "2course"),

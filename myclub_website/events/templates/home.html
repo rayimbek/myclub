@@ -15,23 +15,23 @@
       <h2>"Online GuideBook" will provide</h2>
      <div class = "row">
 		      <div class = "column">
-		      	<img src="{% static 'image1.png' %}">
+		      	<a href="{% url 'prepare' %}"><img src="{% static 'static/image1.png' %}"></a>
 		      	<p>You can prepare for your incoming 
 		exam by useful tips and links</p>
 		      </div>
 		      <div class = "column">
-		      	<img src="{% static 'image4.png' %}">
+		      	<a href = "{% url 'aituevents' %}"><img src="{% static 'static/image4.png' %}"></a>
 		      	<p>You will be informed about upcoming events and existing social clubs </p>
 		      </div>
 	</div>
 	<div class = "row">
 		      <div class = "column">
-		      	<img src="{% static 'image2.png' %}">
+		      	<a href = "{% url 'calculator' %}" ><img src="{% static 'static/image2.png' %}"></a>
 		      	<p>You can calculate and trace grades by 
 GPA system</p>
 		      </div>
 		      <div class = "column">
-		      	<img src="{% static 'image3.png' %}">
+		      	<a href = "{% url 'deadline' %}" ><img src="{% static 'static/image3.png' %}"></a>
 		      	<p>For time management, you will be able
 to manage your course deadlines</p>
 		      </div>

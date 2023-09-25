@@ -23,7 +23,7 @@
 	<header>
 		<nav class="top-nav">
 		    <ul class = "profile">
-		    <li class = "lii"><div class="liss"><img class= "listIMG" src="{% static 'account.png' %}" alt="University Logo"><a>{{ request.session.person.barcode}} <span class="arrow">&#9662;</span></a></div>
+		    <li class = "lii"><div class="liss"><img class= "listIMG" src="{% static 'static/account.png' %}" alt="University Logo"><a>{{ request.session.person.barcode}} <span class="arrow">&#9662;</span></a></div>
 		    	<ul>
               {% if user.is_authenticated %}
               	  <li><a href="{% url 'profile' %}">Profile</a></li>
@@ -40,16 +40,16 @@
 		
     <nav class = "left-nav">
 		<div class="logo-container">
-	 	   <img src="{% static 'unilogo.png' %}" alt="University Logo">
+	 	   <img src="{% static 'static/unilogo.png' %}" alt="University Logo">
 	  </div>
 	<ul>
-	    <a href="{% url 'home' %}"><li><img class= "listIMG" src="{% static 'home.png' %}" alt="University Logo"><label>Dashboard</label></li> </a>
-	    <a href="{% url 'flash' %}"><li><img class= "listIMG" src="{% static 'flashcards.png' %}" alt="University Logo"><label>Flash Cards</label></li></a>
-	    <a href="{% url 'aituevents' %}"><li><img class= "listIMG" src="{% static 'events.png' %}" alt="University Logo"><label>AITU Events</label></li></a>
-	    <a href="{% url 'prepare' %}"><li><img class= "listIMG" src="{% static 'a+.png' %}" alt="University Logo"><label>Exam Prep</label></li></a>
-	    <a href="{% url 'deadline' %}"><li><img class= "listIMG" src="{% static 'deadline.png' %}" alt="University Logo"><label>Deadline</label></li></a>
-	    <a href="{% url 'calculator' %}"><li><img class= "listIMG" src="{% static 'calculator.png' %}" alt="University Logo"><label>GPA Calculator</label></li></a>
-	   <a href="{% url 'faq' %}"> <li><img class= "listIMG" src="{% static 'faq.png' %}" alt="University Logo"><label>FAQs</label></li></a>
+	    <a href="{% url 'home' %}"><li><img class= "listIMG" src="{% static 'static/home.png' %}" alt="University Logo"><label>Dashboard</label></li> </a>
+	    <a href="{% url 'flash' %}"><li><img class= "listIMG" src="{% static 'static/flashcards.png' %}" alt="University Logo"><label>Flash Cards</label></li></a>
+	    <a href="{% url 'aituevents' %}"><li><img class= "listIMG" src="{% static 'static/events.png' %}" alt="University Logo"><label>AITU Events</label></li></a>
+	    <a href="{% url 'prepare' %}"><li><img class= "listIMG" src="{% static 'static/a+.png' %}" alt="University Logo"><label>Exam Prep</label></li></a>
+	    <a href="{% url 'deadline' %}"><li><img class= "listIMG" src="{% static 'static/deadline.png' %}" alt="University Logo"><label>Deadline</label></li></a>
+	    <a href="{% url 'calculator' %}"><li><img class= "listIMG" src="{% static 'static/calculator.png' %}" alt="University Logo"><label>GPA Calculator</label></li></a>
+	   <a href="{% url 'faq' %}"> <li><img class= "listIMG" src="{% static 'static/faq.png' %}" alt="University Logo"><label>FAQs</label></li></a>
 	    
 	  </ul>
 	</nav>

@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-#f=nwc#!_j-1hiq^04=v@(^9112*q)-8#5@i9%(kut-tv9g+j#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app']
 
 
 # Application definition
@@ -23,6 +23,7 @@ ALLOWED_HOSTS = []
 CSRF_TRUSTED_ORIGINS = [
     'https://appname.herokuapp.com'
 ]
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -33,6 +34,7 @@ INSTALLED_APPS = [
     'events',
     'members',
     'mathfilters',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -71,12 +73,21 @@ WSGI_APPLICATION = 'myclub_website.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'demo_1',
+        'USER': 'rayimbek',
+        'PASSWORD':'Raiko7508', 
+        'HOST' : 'database-1.cm924kdd9veu.eu-north-1.rds.amazonaws.com',
+        'PORT' : '5432'
+    }   
+}   
+
+'''
+'default': {
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': BASE_DIR / 'db.sqlite3',
 }
-
-
+'''
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -122,3 +133,13 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AWS_ACCESS_KEY_ID = 'AKIA2O3RSWC3MEDKHF6S'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'rayimbek-club-bucket'
+AWS_S3_HOST = "s3.eu-north-1.amazonaws.com"
+AWS_S3_REGION_NAME="eu-north-1"
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

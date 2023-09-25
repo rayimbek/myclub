@@ -3,6 +3,11 @@
 {% extends 'base.html'  %}
 {% load static %}
 	{% block content %}
+    <style type="text/css">
+        .btn{
+            text-decoration: none;
+        }
+    </style>
 
 	<link rel="stylesheet" href="{% static 'events.css' %}">
 	<section class = "base">
@@ -19,18 +24,10 @@
 
                   <a class="btn" href = "{% url 'show-club' club.id%}">More</a>
                   
-                </div>
+                </div>   
               </div>
        {% else %}
-          {% if forloop.counter == 4 %}
-          <div class = "list">
-            <ul>
-              <li><a href="#">* AITU Clubs</a></li>
-              <li><a href="#">* AITU Hackathon</a></li>
-              <li><a href="#">* AITU StartUP</a></li>
-            </ul>
-          </div>
-         {% endif %}
+         
 
                 <div class="card">
                     {%  if club.club_image %}

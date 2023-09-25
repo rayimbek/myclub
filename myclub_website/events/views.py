@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
 from .models import *
 from datetime import datetime
 from django import template
@@ -24,6 +25,17 @@ def profile(request):
 		context = {'student' : student}
 		return render(request, 'profile.html',context)
 	
+
+def userCreation(request):
+	form = CreateUserForm()
+	if request.method == 'POST':
+			form = CreateUserForm(request.POST)
+			if form.is_valid():
+				form.save()
+				return redirect('createstudent')
+
+	context = {'form' : form}
+	return render(request, 'userCreation.html',context)
 
 @login_required(login_url ='login')
 def accSettings(request):
@@ -64,7 +76,7 @@ def editevents(request):
 def createClub(request):
 	form = ClubForm();
 	if request.method == 'POST':
-		form = ClubForm(request.POST ,request.FILES)
+		form = ClubForm(request.POST , request.FILES)
 		if form.is_valid():
 			form.save()
 			return redirect('aituevents')
@@ -313,7 +325,6 @@ def editcourses(request):
 
 @login_required(login_url ='login')
 def deadline(request):
-
 	if request.user.is_superuser: 
 		students = Student.objects.all()
 		subjects = Subject.objects.all()
@@ -335,9 +346,17 @@ def deadline(request):
 def editstudent(request):
 	return render(request, 'adminpanel/editstudent.html',{})	
 	
+	
 
 def calculator(request):
 	return render(request, 'calculator.html',{})
+
+def finalCalculator(request):
+	return render(request, 'finalCalculator.html',{})
+
+
+def scaleTable(request):
+	return render(request, 'scaleTable.html',{})
 
 def firstclub(request):
 	return render(request, 'clubs/fclub.html',{})

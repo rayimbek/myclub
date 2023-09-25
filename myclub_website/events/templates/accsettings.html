@@ -7,7 +7,7 @@
     }
     
     .profile-container {
-      max-width: 400px;
+      width: 40%;
       margin: 0 auto;
       margin-top: 7%;
       padding: 20px;
@@ -66,12 +66,13 @@
   }
 
   button{
-      padding: 10px 20px;
+      padding: 8px 18px;
+      margin-top: 2%  ;
       border: none;
       border-radius: 5px;
       background-color: #337ab7;
       color: #fff;
-      font-size: 16px;
+      font-size: 20px;
       cursor: pointer;
       transition: background-color 0.3s ease-in-out;
   }
@@ -79,18 +80,33 @@
   button:hover {
       background-color: #23527c;
   }
+  .change{
+    text-decoration: none;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: green;
+      text-align: center;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+  }
+  .change:hover {
+      background-color: #28692d;
+  }
   </style>
   <section class="base">
   <div class="profile-container">
     <h2>Profile Editing</h2>
-    
+      
         <div class="bar error">
             {{ form.errors}}            
         </div>
         <form action = "" method = POST enctype="multipart/form-data">
             {% csrf_token %}      
             {{form}}
-
+            <a class = "change" href = "{% url 'settings'%}">Change Password</a>
           <button type="submit" >Edit</button>
         </form>
     
